@@ -35,29 +35,33 @@ const MOVESCREEN = [
 function Modal({ item }) {
   const [moveScreen, setMoveScreen] = useState('About')
   return (
-    <View style={{ padding: 5 }}>
+    <View
+      testID='detail_view_modal'
+      style={{ padding: 5 }}
+    >
       <View style={styles.viewTab}>
         {MOVESCREEN.map((itemMove, indexMove) => (
           <Button
+            testID='detail_tab_modal'
             style={styles.buttonTab}
             key={indexMove.toString()}
             onPress={() => setMoveScreen(itemMove.screen)}
           >
             {
               itemMove.screen == moveScreen ?
-                <Text style={[styles.txtTab, { color: itemMove.txtColor }]}>
+                <Text testID='detail_txttab_modal' style={[styles.txtTab, { color: itemMove.txtColor }]}>
                   {`${itemMove.screen}`}
                 </Text>
                 :
-                <Text style={[styles.txtTab, { color: "#d9dee9" }]}>
+                <Text testID='detail_txttab_modal' style={[styles.txtTab, { color: "#d9dee9" }]}>
                   {`${itemMove.screen}`}
                 </Text>
             }
             {
               itemMove.screen == moveScreen ?
-                <View style={{ height: scale(1), width: scale(30), backgroundColor: 'blue' }} />
+                <View testID='detail_ngang_modal' style={{ height: scale(1), width: scale(30), backgroundColor: 'blue' }} />
                 :
-                <View style={{ height: scale(1), width: scale(30), backgroundColor: '#e1e5ed' }} />
+                <View testID='detail_ngang_modal' style={{ height: scale(1), width: scale(30), backgroundColor: '#e1e5ed' }} />
             }
           </Button>
         ))}

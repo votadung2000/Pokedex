@@ -6,9 +6,9 @@ import {
 
 const Moves = () => {
   return (
-    <View>
+    <View testID='detail_moves_modal'>
       <Text>
-      Moves
+        {`Moves`}
       </Text>
     </View>
   )

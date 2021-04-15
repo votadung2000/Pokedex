@@ -27,8 +27,14 @@ const Info = ({ label, value }) => (
 
 const BaseStats = ({ item }) => {
   return (
-    <View style={{ padding: scale(6), }}>
-      <View style={styles.viewInfo}>
+    <View
+      testID='detail_base_modal'
+      style={{ padding: scale(6), }}
+    >
+      <View
+        testID='detail_viewinfo_base_modal'
+        style={styles.viewInfo}
+      >
         <Info label="HP" value={45} />
         <Info label="Attck" value={60} />
         <Info label="Defence" value={48} />
@@ -37,7 +43,10 @@ const BaseStats = ({ item }) => {
         <Info label="Speed" value={45} />
         <Info label="Total" value={97} />
       </View>
-      <View style={{ paddingHorizontal: scale(2) }}>
+      <View
+        testID='detail_viewbreeding_base_modal'
+        style={{ paddingHorizontal: scale(2) }}
+      >
         <Text style={styles.txtBreeding}>
           {`Type defenses`}
         </Text>

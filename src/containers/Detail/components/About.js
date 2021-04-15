@@ -32,14 +32,20 @@ const InfoHeightWeight = ({ label, value, heightweight }) => (
 
 const About = ({ item }) => {
   return (
-    <View style={{padding: scale(6),}}>
-      <View style={{ marginBottom: scale(12), }}>
+    <View
+      testID='detail_about_modal'
+      style={{ padding: scale(6), }}
+    >
+      <View
+        testID='detail_viewinfo_modal'
+        style={{ marginBottom: scale(12), }}
+      >
         <Info label="Specles" value="Specles" />
         <InfoHeightWeight label="Height" value="Height" heightweight={`(${item.height})`} />
         <InfoHeightWeight label="Weight" value="Weight" heightweight={`(${item.weight})`} />
         <Info label="Abilitles" value="Abilitles" />
       </View>
-      <View>
+      <View testID='detail_viewinfoheight_modal'>
         <Text style={styles.txtBreeding}>
           {`Breeding`}
         </Text>
@@ -54,7 +60,7 @@ const styles = StyleSheet.create({
   viewTxt: {
     flexDirection: 'row',
     margin: scale(3),
-    justifyContent: 'flex-start', 
+    justifyContent: 'flex-start',
   },
   txtTxt: {
     width: scale(80),
@@ -62,7 +68,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(12),
     color: colors.txtAbout1,
     fontSize: fontSize.smaller,
-    
+
   },
   txtTxt2: {
     width: scale(110),

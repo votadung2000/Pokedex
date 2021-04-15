@@ -38,13 +38,13 @@ describe('Home screen', () => {
 
   describe('home screen check flatlist', () => {
     it('should card', async () => {
-      await expect(element(by.id('home_card')).atIndex(5)).toBeVisible();
+      await expect(element(by.id('home_card')).atIndex(0)).toBeVisible();
     });
 
     it('should item card', async () => {
-      await expect(element(by.id('home_card_name')).atIndex(5)).toBeVisible();
-      await expect(element(by.id('home_card_type')).atIndex(5)).toBeVisible();
-      await expect(element(by.id('home_card_img')).atIndex(5)).toBeVisible();
+      await expect(element(by.id('home_card_name')).atIndex(0)).toBeVisible();
+      await expect(element(by.id('home_card_type')).atIndex(0)).toBeVisible();
+      await expect(element(by.id('home_card_img')).atIndex(0)).toBeVisible();
     });
 
     // it('should flatlist', async () => {
@@ -52,7 +52,7 @@ describe('Home screen', () => {
     // });
 
     it('click card', async () => {
-      await element(by.id('home_card')).atIndex(5).tap();
+      await element(by.id('home_card')).atIndex(0).tap();
     });
   });
 
