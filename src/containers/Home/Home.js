@@ -25,6 +25,26 @@ const Home = ({ navigation }) => {
     fetchPokemon();
   }, []);
 
+  // addRecords = (page) => {
+  //   // assuming this.state.dataPosts hold all the records
+  //   const newRecords = []
+  //   for(var i = page * 12, il = i + 12; i < il && i < 
+  //     this.state.dataPosts.length; i++){
+  //     newRecords.push(this.state.dataPosts[i]);
+  //   }
+  //   this.setState({
+  //     posts: [...this.state.posts, ...newRecords]
+  //   });
+  // }
+
+  // onScrollHandler = () => {
+  //   this.setState({
+  //     page: this.state.page + 1
+  //   }, () => {
+  //     this.addRecords(this.state.page);
+  //   });
+  // }
+
   return (
     <Layout testID='home_screen'>
       <View style={styles.container}>
@@ -57,6 +77,10 @@ const Home = ({ navigation }) => {
   )
 }
 const styles = StyleSheet.create({
+  container:{
+    flex: 1, 
+    marginTop: 25,
+  },
   header: {
     justifyContent: 'space-between',
     flexDirection: 'row',

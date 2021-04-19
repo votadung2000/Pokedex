@@ -29,7 +29,7 @@ const CardFlatList = ({
     navigation.navigate(routes.DETAIL, { item: item, color });
     //console.log(item, color)
   }
-
+  // { console.log(item) }
   return (
     <TouchableOpacity
       testID='home_card'
@@ -54,6 +54,8 @@ const CardFlatList = ({
         <Image
           testID='home_card_img'
           source={{ uri: item.img }}
+          // source={{uri: "https://deviet.vn/wp-content/uploads/2019/04/vuong-quoc-anh.jpg"}}
+          // source={require("../../../icons/back.png")}
           style={styles.image}
           resizeMode="cover"
         />
@@ -65,6 +67,7 @@ const CardFlatList = ({
 const styles = StyleSheet.create({
   card: {
     width: wScale(160),
+    // width: wScale(120),//ios
     // height: wScale(120),
     marginBottom: scale(10),
     marginHorizontal: scale(5),
@@ -73,8 +76,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(15),
   },
   image: {
-    width: wScale(75),
-    height: wScale(72),
+    // width: wScale(75),
+    // height: wScale(72),
+    width: wScale(70),
+    height: wScale(67),
   },
   title: {
     fontSize: fontSize.fontSize20,

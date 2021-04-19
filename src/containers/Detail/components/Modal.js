@@ -80,7 +80,7 @@ function Modal({ item }) {
 const styles = StyleSheet.create({
   buttonTab: {
     margin: scale(9),
-    paddingHorizontal: scale(13),
+    paddingHorizontal: scale(10),
     paddingVertical: scale(3),
     alignItems: 'center',
     marginTop: scale(20),
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   },
   txtTab: {
     fontWeight: 'bold',
-    fontSize: fontSize.fontSize14,
+    fontSize: fontSize.fontSize13,
     marginTop: scale(10),
     marginBottom: scale(10),
   },

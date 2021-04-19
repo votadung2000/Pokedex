@@ -1,3 +1,5 @@
+
+
 describe('Home screen', () => {
   before(async () => {
     await device.launchApp(); // Khởi chạy ứng dụng sau cài đặt
@@ -28,13 +30,13 @@ describe('Home screen', () => {
     });
   });
 
-  describe('home screen check scan button', () => {
-    it('click scanner', async () => {
-      await element(by.id('icon_home_scan')).tap();
-      await expect(element(by.id('home_screen'))).toBeNotVisible();
-      await element(by.id('buttonBackScanner')).tap();
-    });
-  });
+  // describe('home screen check scan button', () => {
+  //   it('click scanner', async () => {
+  //     await element(by.id('icon_home_scan')).tap();
+  //     await expect(element(by.id('home_screen'))).toBeNotVisible();
+  //     await element(by.id('buttonBackScanner')).tap();
+  //   });
+  // });
 
   describe('home screen check flatlist', () => {
     it('should card', async () => {
@@ -47,9 +49,10 @@ describe('Home screen', () => {
       await expect(element(by.id('home_card_img')).atIndex(0)).toBeVisible();
     });
 
-    // it('should flatlist', async () => {
-    //   await element(by.id('home_flatlist')).scrollTo('bottom');
-    // });
+    it('should flatlist', async () => {
+      await element(by.id('home_flatlist')).swipe('down', 'slow', 0.75);
+      await element(by.id('home_flatlist')).swipe('up', 'slow', 0.75);
+    });
 
     it('click card', async () => {
       await element(by.id('home_card')).atIndex(0).tap();

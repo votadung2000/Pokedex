@@ -11,7 +11,7 @@ const Text = ({
     <RNText
       style={[
         {
-          fontFamily: bold ? 'Roboto_Bold' : 'Roboto_Regular',
+          // fontFamily: bold ? 'Roboto_Bold' : 'Roboto_Regular',
         },
         style,
       ]}

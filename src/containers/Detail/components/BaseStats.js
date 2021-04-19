@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     margin: scale(2),
     paddingHorizontal: scale(2),
     color: colors.txtAbout1,
-    fontSize: fontSize.smaller,
+    fontSize: fontSize.fontSize11,
   },
   txtTxt2: {
     width: scale(45),
@@ -76,13 +76,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(15),
     color: colors.txtAbout2,
     fontWeight: 'bold',
-    fontSize: fontSize.smaller,
+    fontSize: fontSize.fontSize11,
   },
   txtBreeding: {
     paddingHorizontal: scale(10),
     margin: scale(2),
     fontWeight: 'bold',
-    fontSize: fontSize.fontSize14,
+    fontSize: fontSize.fontSize13,
     marginBottom: scale(5),
     color: colors.txtAbout2,
   },
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     margin: scale(2),
     paddingHorizontal: scale(10),
     color: colors.txtAbout1,
-    fontSize: fontSize.smaller,
+    fontSize: fontSize.fontSize11,
   },
   viewViewIndex: {
     height: scale(2),

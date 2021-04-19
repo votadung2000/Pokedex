@@ -10,13 +10,13 @@ module.exports = {
   "apps": {
     "ios.release": {
       "type": "ios.app",
-      "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/example.app",
-      "build": "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -project ios/example.xcodeproj -UseNewBuildSystem=NO -scheme example -configuration Release -sdk iphonesimulator -derivedDataPath ios/build -quiet"
+      "binaryPath": "ios/build/Build/Products/Release-iphonesimulator/Pokedex.app",
+      "build": "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -project ios/Pokedex.xcodeproj -UseNewBuildSystem=NO -scheme Pokedex -configuration Release -sdk iphonesimulator -derivedDataPath ios/build -quiet"
     },
     "ios.debug": {
       "type": "ios.app",
-      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/example.app",
-      "build": "xcodebuild -project ios/example.xcodeproj -UseNewBuildSystem=NO -scheme example -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build"
+      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/Pokedex.app",
+      "build": "xcodebuild -project ios/Pokedex.xcodeproj -scheme Pokedex -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build"
     },
     "android.debug": {
       "type": "android.apk",

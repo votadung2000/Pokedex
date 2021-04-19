@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     margin: scale(2),
     paddingHorizontal: scale(12),
     color: colors.txtAbout1,
-    fontSize: fontSize.smaller,
+    fontSize: fontSize.fontSize11,
 
   },
   txtTxt2: {
@@ -75,14 +75,14 @@ const styles = StyleSheet.create({
     margin: scale(2),
     paddingHorizontal: scale(12),
     color: colors.txtAbout2,
-    fontSize: fontSize.smaller,
+    fontSize: fontSize.fontSize11,
     fontWeight: 'bold',
   },
   txtBreeding: {
     paddingHorizontal: scale(14),
     margin: scale(2),
     fontWeight: 'bold',
-    fontSize: fontSize.fontSize14,
+    fontSize: fontSize.fontSize13,
     marginBottom: scale(8),
   }
 })

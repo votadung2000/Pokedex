@@ -44,14 +44,19 @@ const Detail = ({ navgation, route }) => {
           </View>
           < View style={styles.viewHeaderFooter}>
             <View>
-              <Text style={styles.txtName}>
-                {`${route.params.item.name}`}
-              </Text>
+              <View style={{
+                paddingHorizontal: scale(6),
+                marginBottom: scale(10),
+              }}>
+                <Text style={styles.txtName}>
+                  {`${route.params.item.name}`}
+                </Text>
+              </View>
               <View style={styles.viewType}>
                 {route.params.item.type.map((item, index) => (
                   <Button
                     testID='type_detail'
-                    style={styles.viewType}
+                    style={styles.btnType}
                     key={index.toString()}
                   >
                     <Text style={styles.txtType}>
@@ -73,21 +78,23 @@ const Detail = ({ navgation, route }) => {
         </View>
         <View style={{
           backgroundColor: 'white',
-          height: 330,
-          borderTopLeftRadius: scale(20),
-          borderTopRightRadius: scale(20),
+          height: 390,
+          // borderTopLeftRadius: scale(20),
+          // borderTopRightRadius: scale(20),
+          borderRadius: scale(20),
           alignItems: 'center',
         }}>
           <View style={{
             justifyContent: 'center',
             alignItems: 'center',
             position: 'absolute',
-            top: -160,
+            top: -240,
             zIndex: 1,
           }}>
             <Image
               testID='img_detail'
-              source={{ uri: route.params.item.img }}
+              // source={{ uri: route.params.item.img }}
+              source={{uri: "https://deviet.vn/wp-content/uploads/2019/04/vuong-quoc-anh.jpg"}}
               style={styles.image}
             />
           </View>
@@ -101,12 +108,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    // marginTop: 25,
+    // padding: 20, //ios
   },
   header: {
     flexDirection: 'column',
     marginBottom: scale(5),
     padding: scale(10),
+    marginTop: 20,
   },
   icon: {
     paddingVertical: 5,
@@ -114,29 +124,31 @@ const styles = StyleSheet.create({
     marginBottom: scale(10),
   },
   txtName: {
-    fontSize: fontSize.biggest4,
+    fontSize: fontSize.biggest3,
     color: colors.white,
     fontWeight: 'bold',
-    paddingHorizontal: scale(6),
-    marginBottom: scale(10),
   },
   viewType: {
     justifyContent: 'flex-start',
-    paddingHorizontal: scale(4),
     flexDirection: 'row',
+    borderRadius: scale(10),
+    paddingVertical: scale(4),
+  },
+  btnType:{
+    paddingHorizontal: scale(15),
+    paddingVertical: scale(4),
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    borderRadius: scale(10),
+    marginLeft: 5,
   },
   txtType: {
     color: colors.white,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    borderRadius: scale(10),
-    paddingHorizontal: scale(20),
-    paddingVertical: scale(4),
     fontWeight: 'bold',
-    fontSize: fontSize.small,
+    fontSize: fontSize.fontSize11,
   },
   image: {
     width: wScale(155),
-    aspectRatio: 0.9,
+    aspectRatio: 0.9,backgroundColor: 'red'
   },
   viewHeaderBotton: {
     flexDirection: 'row',
@@ -155,7 +167,7 @@ const styles = StyleSheet.create({
   txtNum: {
     color: colors.white,
     fontWeight: 'bold',
-    fontSize: fontSize.huger,
+    fontSize: fontSize.larger,
   },
 })
 export default Detail

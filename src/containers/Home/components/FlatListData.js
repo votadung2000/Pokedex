@@ -25,7 +25,7 @@ const FlatListData = ({ data }) => {
         testID='home_flatlist'
         data={data}
         numColumns={2}
-        initialNumToRender={20}
+        // initialNumToRender={20}
         renderItem={_renderItem}
         keyExtractor={_keyExtractor}
         // onEndReached={onScrollHandler}
