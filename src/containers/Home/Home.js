@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   StyleSheet,
 } from 'react-native'
-console.disableYellowBox = true;
+// console.disableYellowBox = true;
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -14,36 +14,33 @@ import { scale } from '../../utils/resolutions';
 import routes from '../../routes'
 
 import { FlatListData } from './components'
-// import Config from "react-native-config";
-// import axios from 'axios';
 import { observer } from "mobx-react";
 import { useStore } from '../../context';
 
 const Home = ({ navigation }) => {
+  const [delay, setDelay] = useState(false);
+  const [page, setPage] = useState(1);
   const { pokedexStore: { pokemon, fetchPokemon } } = useStore();
+
   useEffect(() => {
     fetchPokemon();
   }, []);
 
-  // addRecords = (page) => {
-  //   // assuming this.state.dataPosts hold all the records
-  //   const newRecords = []
-  //   for(var i = page * 12, il = i + 12; i < il && i < 
-  //     this.state.dataPosts.length; i++){
-  //     newRecords.push(this.state.dataPosts[i]);
-  //   }
-  //   this.setState({
-  //     posts: [...this.state.posts, ...newRecords]
-  //   });
-  // }
+  const onScrollHandler = () => {
+    if (page < (pokemon.length / 20) && !delay) {
+      setPage(prev => prev + 1);
+      setDelay(true);
+      setTimeout(() => {
+        setDelay(false);
+      }, 1000);
+    }
+  }
 
-  // onScrollHandler = () => {
-  //   this.setState({
-  //     page: this.state.page + 1
-  //   }, () => {
-  //     this.addRecords(this.state.page);
-  //   });
-  // }
+  console.log('page', page);
+
+  const data = pokemon.slice(0, page * 20);
+
+  console.log(data.length)
 
   return (
     <Layout testID='home_screen'>
@@ -67,18 +64,18 @@ const Home = ({ navigation }) => {
         <Text style={styles.txtHeader}>
           {`Pokedex`}
         </Text>
-        <View style={styles.content}>
-          <FlatListData
-            data={pokemon}
-          />
-        </View>
+        <FlatListData
+          data={data}
+          onEndReached={onScrollHandler}
+          onEndThreshold={16}
+        />
       </View>
     </Layout>
   )
 }
 const styles = StyleSheet.create({
-  container:{
-    flex: 1, 
+  container: {
+    flex: 1,
     marginTop: 25,
   },
   header: {

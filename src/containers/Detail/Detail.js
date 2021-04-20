@@ -78,7 +78,7 @@ const Detail = ({ navgation, route }) => {
         </View>
         <View style={{
           backgroundColor: 'white',
-          height: 390,
+          height: 320,
           // borderTopLeftRadius: scale(20),
           // borderTopRightRadius: scale(20),
           borderRadius: scale(20),
@@ -88,13 +88,14 @@ const Detail = ({ navgation, route }) => {
             justifyContent: 'center',
             alignItems: 'center',
             position: 'absolute',
-            top: -240,
+            // top: -240, ios
+            top: -160,
             zIndex: 1,
           }}>
             <Image
               testID='img_detail'
-              // source={{ uri: route.params.item.img }}
-              source={{uri: "https://deviet.vn/wp-content/uploads/2019/04/vuong-quoc-anh.jpg"}}
+              source={{ uri: route.params.item.img }}
+              // source={{uri: "https://deviet.vn/wp-content/uploads/2019/04/vuong-quoc-anh.jpg"}}
               style={styles.image}
             />
           </View>
@@ -148,7 +149,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: wScale(155),
-    aspectRatio: 0.9,backgroundColor: 'red'
+    aspectRatio: 0.9,
   },
   viewHeaderBotton: {
     flexDirection: 'row',
