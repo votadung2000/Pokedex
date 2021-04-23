@@ -4,9 +4,11 @@ import {
   Image,
   View,
   TouchableOpacity,
+  Platform
 } from 'react-native';
 import { fontSize, colors } from '../../../constants';
 import { scale, wScale } from '../../../utils/resolutions';
+import { linkImage } from '../../../utils/helpers';
 // import { limitedString } from '../../../utils/helpers';
 import { Button, Text } from '../../../components';
 import { useNavigation } from '@react-navigation/native';
@@ -29,7 +31,13 @@ const CardFlatList = ({
     navigation.navigate(routes.DETAIL, { item: item, color });
     //console.log(item, color)
   }
-  // { console.log(item) }
+  // console.log(item.img) 
+
+  // const linkImage = (i) => {
+  //   const link = i.substring(4, i.length)
+  //   return 'https' + link
+  // }
+
   return (
     <TouchableOpacity
       testID='home_card'
@@ -53,8 +61,8 @@ const CardFlatList = ({
         </View>
         <Image
           testID='home_card_img'
-          source={{ uri: item.img }}
-          // source={{uri: "https://deviet.vn/wp-content/uploads/2019/04/vuong-quoc-anh.jpg"}}
+          source={{ uri: Platform.OS === 'android' ? item.img : linkImage(item.img) }}
+          // source={{uri: "https://img.lovepik.com/element/40018/4051.png_860.png"}}
           // source={require("../../../icons/back.png")}
           style={styles.image}
           resizeMode="cover"
@@ -66,8 +74,8 @@ const CardFlatList = ({
 
 const styles = StyleSheet.create({
   card: {
-    width: wScale(160),
-    // width: wScale(120),//ios
+    // width: wScale(180),
+    width: wScale(170),
     // height: wScale(120),
     marginBottom: scale(10),
     marginHorizontal: scale(5),

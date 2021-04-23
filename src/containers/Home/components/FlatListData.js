@@ -7,7 +7,7 @@ import {
 import { scale } from '../../../utils/resolutions';
 import CardFlatList from './CardFlatList';
 
-const FlatListData = ({ data, ...rest }) => {
+const FlatListData = ({ data, contentContainerStyle, ...rest }) => {
   // console.log(onScrollHandler)
   const _renderItem = (item) => {
     return (
@@ -20,7 +20,6 @@ const FlatListData = ({ data, ...rest }) => {
   const _keyExtractor = item => String(item.id);
 
   return (
-    // <View style={styles.container} >
     <FlatList
       {...rest}
       testID='home_flatlist'
@@ -30,10 +29,10 @@ const FlatListData = ({ data, ...rest }) => {
       initialNumToRender={20}
       renderItem={_renderItem}
       keyExtractor={_keyExtractor}
-      // contentContainerStyle={{ paddingBottom: 120 }}
-      columnWrapperStyle={{ justifyContent: 'space-between', }}
+      // contentContainerStyle={{ paddingBottom: 120 }} làm hư trình limited 
+      columnWrapperStyle={{ justifyContent: 'space-around', }}
+      contentContainerStyle={contentContainerStyle}
     />
-    // </View>
   )
 }
 

@@ -68,6 +68,7 @@ const Home = ({ navigation }) => {
           data={data}
           onEndReached={onScrollHandler}
           onEndThreshold={16}
+          contentContainerStyle={{paddingHorizontal: scale(5)}}
         />
       </View>
     </Layout>

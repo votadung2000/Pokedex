@@ -36,8 +36,8 @@ export const scale = size => width / guidelineBaseWidth * parseInt(size);
 
 
 // width
-export const wScale = size => height / guidelineBaseHeight * parseInt(size);
+export const hScale = size => height / guidelineBaseHeight * parseInt(size);
 
 
 // height
-export const hScale = (size, factor = 0.5) => parseInt(size) + (scale(parseInt(size)) - parseInt(size)) * factor;
+export const wScale = (size, factor = 0.5) => parseInt(size) + (scale(parseInt(size)) - parseInt(size)) * factor;

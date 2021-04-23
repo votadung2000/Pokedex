@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import {
   View,
   StyleSheet,
-  Image
+  Image,
+  Platform
 } from 'react-native'
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -11,6 +12,7 @@ import { Layout } from '../../views';
 import { Text, Button } from '../../components';
 import { colors, fontSize } from '../../constants';
 import { scale, wScale } from '../../utils/resolutions';
+import { linkImage } from '../../utils/helpers';
 import { useNavigation } from '@react-navigation/native';
 import routes from '../../routes'
 import Modal from './components/Modal'
@@ -94,7 +96,7 @@ const Detail = ({ navgation, route }) => {
           }}>
             <Image
               testID='img_detail'
-              source={{ uri: route.params.item.img }}
+              source={{ uri: Platform.OS === 'android' ? route.params.item.img : linkImage(route.params.item.img) }}
               // source={{uri: "https://deviet.vn/wp-content/uploads/2019/04/vuong-quoc-anh.jpg"}}
               style={styles.image}
             />
@@ -135,7 +137,7 @@ const styles = StyleSheet.create({
     borderRadius: scale(10),
     paddingVertical: scale(4),
   },
-  btnType:{
+  btnType: {
     paddingHorizontal: scale(15),
     paddingVertical: scale(4),
     backgroundColor: 'rgba(255, 255, 255, 0.3)',
