@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import {
   View,
   StyleSheet,
-  Image,
   Platform
 } from 'react-native'
 
@@ -16,8 +15,9 @@ import { linkImage } from '../../utils/helpers';
 import { useNavigation } from '@react-navigation/native';
 import routes from '../../routes'
 import Modal from './components/Modal'
+import FastImage from 'react-native-fast-image'
 
-const Detail = ({ navgation, route }) => {
+const Detail = ({ route }) => {
   const navigation = useNavigation();
   const [heart, setHeart] = useState(false)
   return (
@@ -46,10 +46,7 @@ const Detail = ({ navgation, route }) => {
           </View>
           < View style={styles.viewHeaderFooter}>
             <View>
-              <View style={{
-                paddingHorizontal: scale(6),
-                marginBottom: scale(10),
-              }}>
+              <View style={styles.viewTextName}>
                 <Text style={styles.txtName}>
                   {`${route.params.item.name}`}
                 </Text>
@@ -78,26 +75,14 @@ const Detail = ({ navgation, route }) => {
             </View>
           </View>
         </View>
-        <View style={{
-          backgroundColor: 'white',
-          height: 320,
-          // borderTopLeftRadius: scale(20),
-          // borderTopRightRadius: scale(20),
-          borderRadius: scale(20),
-          alignItems: 'center',
-        }}>
-          <View style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            position: 'absolute',
-            // top: -240, ios
-            top: -160,
-            zIndex: 1,
-          }}>
-            <Image
+        <View style={styles.viewFooter}>
+          <View style={styles.viewImageFooter}>
+            <FastImage
               testID='img_detail'
-              source={{ uri: Platform.OS === 'android' ? route.params.item.img : linkImage(route.params.item.img) }}
-              // source={{uri: "https://deviet.vn/wp-content/uploads/2019/04/vuong-quoc-anh.jpg"}}
+              source={{
+                uri: Platform.OS === 'android' ? route.params.item.img : linkImage(route.params.item.img),
+                priority: FastImage.priority.high,
+              }}
               style={styles.image}
             />
           </View>
@@ -112,14 +97,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-between',
-    // marginTop: 25,
-    // padding: 20, //ios
   },
   header: {
     flexDirection: 'column',
     marginBottom: scale(5),
-    padding: scale(10),
-    marginTop: 20,
+    padding: scale(5),
+    marginTop: scale(5),
+    // backgroundColor: 'red'
   },
   icon: {
     paddingVertical: 5,
@@ -171,6 +155,25 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: 'bold',
     fontSize: fontSize.larger,
+  },
+  viewFooter: {
+    backgroundColor: 'white',
+    height: 360,
+    borderTopEndRadius: scale(20),
+    borderTopStartRadius: scale(20),
+    alignItems: 'center',
+  },
+  viewImageFooter: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    top: -160,
+    zIndex: 1,
+    width: wScale(180),
+  },
+  viewTextName: {
+    paddingHorizontal: scale(6),
+    marginBottom: scale(10),
   },
 })
 export default Detail

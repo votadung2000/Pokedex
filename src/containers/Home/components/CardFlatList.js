@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
-  Image,
   View,
   TouchableOpacity,
   Platform
@@ -14,6 +13,7 @@ import { Button, Text } from '../../../components';
 import { useNavigation } from '@react-navigation/native';
 import routes from '../../../routes'
 import getColor from '../../../utils/getColor'
+import FastImage from 'react-native-fast-image'
 
 const CardFlatList = ({
   item,
@@ -43,6 +43,7 @@ const CardFlatList = ({
       testID='home_card'
       style={[styles.card, { backgroundColor: getColor(item.type[0]) }]}
       onPress={() => gotoFindBook(item, getColor(item.type[0]))}
+      activeOpacity={0.9}
     >
       <Text style={styles.title} testID='home_card_name'>
         {item.name}
@@ -59,11 +60,13 @@ const CardFlatList = ({
             </Button>
           ))}
         </View>
-        <Image
+        <FastImage
           testID='home_card_img'
-          source={{ uri: Platform.OS === 'android' ? item.img : linkImage(item.img) }}
-          // source={{uri: "https://img.lovepik.com/element/40018/4051.png_860.png"}}
-          // source={require("../../../icons/back.png")}
+          source={{ 
+            uri: Platform.OS === 'android' ? item.img : linkImage(item.img),
+            // headers: { Authorization: 'someAuthToken' },
+            priority: FastImage.priority.high,
+          }}
           style={styles.image}
           resizeMode="cover"
         />
@@ -74,9 +77,7 @@ const CardFlatList = ({
 
 const styles = StyleSheet.create({
   card: {
-    // width: wScale(180),
     width: wScale(170),
-    // height: wScale(120),
     marginBottom: scale(10),
     marginHorizontal: scale(5),
     borderRadius: scale(10),
@@ -84,8 +85,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(15),
   },
   image: {
-    // width: wScale(75),
-    // height: wScale(72),
     width: wScale(70),
     height: wScale(67),
   },

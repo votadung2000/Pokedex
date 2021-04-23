@@ -2,6 +2,7 @@ import React from 'react'
 import {
   View,
   StyleSheet,
+  ScrollView,
 } from 'react-native'
 import { colors, fontSize } from '../../../constants';
 import { scale } from '../../../utils/resolutions';
@@ -24,43 +25,47 @@ const Info = ({ label, value }) => (
     </View>
   </View>
 )
-
 const BaseStats = ({ item }) => {
   return (
-    <View
-      testID='detail_base_modal'
-      style={{ padding: scale(6), }}
-    >
+    <ScrollView contentContainerStyle={{ paddingBottom: 30 }}>
       <View
-        testID='detail_viewinfo_base_modal'
-        style={styles.viewInfo}
+        testID='detail_base_modal'
+        style={styles.container}
       >
-        <Info label="HP" value={45} />
-        <Info label="Attck" value={60} />
-        <Info label="Defence" value={48} />
-        <Info label="Sp. Atk" value={65} />
-        <Info label="Sp. Def" value={65} />
-        <Info label="Speed" value={45} />
-        <Info label="Total" value={97} />
+        <View
+          testID='detail_viewinfo_base_modal'
+          style={styles.viewInfo}
+        >
+          <Info label="HP" value={45} />
+          <Info label="Attck" value={60} />
+          <Info label="Defence" value={48} />
+          <Info label="Sp. Atk" value={65} />
+          <Info label="Sp. Def" value={65} />
+          <Info label="Speed" value={45} />
+          <Info label="Total" value={97} />
+        </View>
+        <View
+          testID='detail_viewbreeding_base_modal'
+          style={{ paddingHorizontal: scale(2) }}
+        >
+          <Text style={styles.txtBreeding}>
+            {`Type defenses`}
+          </Text>
+          <Text style={styles.txtTxtxx}>
+            {`The effectiveness of each typeon ${item.name}`}
+          </Text>
+        </View>
       </View>
-      <View
-        testID='detail_viewbreeding_base_modal'
-        style={{ paddingHorizontal: scale(2) }}
-      >
-        <Text style={styles.txtBreeding}>
-          {`Type defenses`}
-        </Text>
-        <Text style={styles.txtTxtxx}>
-          {`The effectiveness of each typeon ${item.name}`}
-        </Text>
-      </View>
-    </View>
+    </ScrollView>
   )
 }
 const styles = StyleSheet.create({
+  container: {
+    padding: scale(6),
+  },
   viewTxt: {
     flexDirection: 'row',
-    margin: scale(2),
+    margin: scale(3),
     alignItems: 'center',
   },
   txtTxt: {
@@ -68,7 +73,7 @@ const styles = StyleSheet.create({
     margin: scale(2),
     paddingHorizontal: scale(2),
     color: colors.txtAbout1,
-    fontSize: fontSize.fontSize11,
+    fontSize: fontSize.smaller,
   },
   txtTxt2: {
     width: scale(45),
@@ -76,19 +81,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(15),
     color: colors.txtAbout2,
     fontWeight: 'bold',
-    fontSize: fontSize.fontSize11,
+    fontSize: fontSize.smaller,
   },
   txtBreeding: {
     paddingHorizontal: scale(10),
     margin: scale(2),
     fontWeight: 'bold',
-    fontSize: fontSize.fontSize13,
+    fontSize: fontSize.fontSize14,
     marginBottom: scale(5),
     color: colors.txtAbout2,
   },
   viewIndex: {
     width: scale(170),
-    height: scale(2),
+    height: scale(3),
     backgroundColor: colors.viewBase,
     marginLeft: scale(10)
   },
@@ -96,14 +101,14 @@ const styles = StyleSheet.create({
     margin: scale(2),
     paddingHorizontal: scale(10),
     color: colors.txtAbout1,
-    fontSize: fontSize.fontSize11,
+    fontSize: fontSize.smaller,
   },
   viewViewIndex: {
-    height: scale(2),
+    height: scale(3),
   },
   viewInfo: {
     marginBottom: scale(10),
-    paddingHorizontal: scale(10),
+    paddingHorizontal: scale(15),
   },
 })
 export default BaseStats

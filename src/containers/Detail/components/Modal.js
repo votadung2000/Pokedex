@@ -37,7 +37,7 @@ function Modal({ item }) {
   return (
     <View
       testID='detail_view_modal'
-      style={{ padding: 5 }}
+      style={styles.container}
     >
       <View style={styles.viewTab}>
         {MOVESCREEN.map((itemMove, indexMove) => (
@@ -59,25 +59,25 @@ function Modal({ item }) {
             }
             {
               itemMove.screen == moveScreen ?
-                <View testID='detail_ngang_modal' style={{ height: scale(1), width: scale(30), backgroundColor: 'blue' }} />
+                <View testID='detail_ngang_modal' style={[styles.viewUnderlined, { backgroundColor: 'blue' }]} />
                 :
-                <View testID='detail_ngang_modal' style={{ height: scale(1), width: scale(30), backgroundColor: '#e1e5ed' }} />
+                <View testID='detail_ngang_modal' style={[styles.viewUnderlined, { backgroundColor: '#e1e5ed' }]} />
             }
           </Button>
         ))}
       </View>
-      <View style={styles.viewScreen}>
-        {
-          moveScreen == "About" ? <About item={item} />
-            : moveScreen == "Base Stats" ? <BaseStats item={item} />
-              : moveScreen == "Evolution" ? <Evolution item={item} />
-                : <Moves item={item} />
-        }
-      </View>
+      {moveScreen == "About" && <About item={item} />}
+      {moveScreen == "Base Stats" && <BaseStats item={item} />}
+      {moveScreen == "Evolution" && <Evolution item={item} />}
+      {moveScreen == "Moves" && <Moves item={item} />}
     </View>
   )
 }
 const styles = StyleSheet.create({
+  container: {
+    padding: 5,
+    flex: 1,
+  },
   buttonTab: {
     margin: scale(9),
     paddingHorizontal: scale(10),
@@ -88,16 +88,21 @@ const styles = StyleSheet.create({
   },
   txtTab: {
     fontWeight: 'bold',
-    fontSize: fontSize.fontSize13,
+    fontSize: fontSize.fontSize14,
     marginTop: scale(10),
     marginBottom: scale(10),
   },
   viewScreen: {
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
   viewTab: {
+    // flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  viewUnderlined: {
+    height: scale(1),
+    width: scale(30),
   }
 });
 export default Modal

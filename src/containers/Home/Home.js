@@ -32,7 +32,7 @@ const Home = ({ navigation }) => {
       setDelay(true);
       setTimeout(() => {
         setDelay(false);
-      }, 1000);
+      }, 500);
     }
   }
 
@@ -46,13 +46,16 @@ const Home = ({ navigation }) => {
     <Layout testID='home_screen'>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Button
+          {/* <Button
             testID='icon_home_back'
             onPress={() => alert("Back")}
             style={styles.icon}
           >
             <Ionicons name="arrow-back-outline" size={26} />
-          </Button>
+          </Button> */}
+          <Text style={styles.txtHeader}>
+            {`Pokedex`}
+          </Text>
           <Button
             testID='icon_home_scan'
             onPress={() => navigation.navigate(routes.SCANNER)}
@@ -61,14 +64,12 @@ const Home = ({ navigation }) => {
             <Ionicons name="ios-scan-outline" size={26} />
           </Button>
         </View>
-        <Text style={styles.txtHeader}>
-          {`Pokedex`}
-        </Text>
         <FlatListData
           data={data}
+          delay={delay}
           onEndReached={onScrollHandler}
           onEndThreshold={16}
-          contentContainerStyle={{paddingHorizontal: scale(5)}}
+          contentContainerStyle={{ padding: scale(5) }}
         />
       </View>
     </Layout>
@@ -77,13 +78,14 @@ const Home = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 25,
+    marginTop: 15,
   },
   header: {
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginBottom: scale(15),
-    paddingHorizontal: scale(10),
+    paddingHorizontal: scale(10)
+    // marginBottom: scale(15),
+   
   },
   icon: {
     paddingVertical: scale(5),
@@ -92,8 +94,8 @@ const styles = StyleSheet.create({
   txtHeader: {
     fontSize: fontSize.biggest2,
     fontWeight: 'bold',
-    marginBottom: scale(10),
-    paddingHorizontal: scale(15),
+    // marginBottom: scale(10),
+    // paddingHorizontal: scale(15),
   },
 })
 

@@ -11,15 +11,15 @@ describe('Home screen', () => {
 
   describe('should have home screen', async () => {
     await expect(element(by.id('home_screen'))).toBeVisible();
-    await expect(element(by.id('icon_home_back'))).toBeVisible();
+    // await expect(element(by.id('icon_home_back'))).toBeVisible();
     await expect(element(by.id('icon_home_scan'))).toBeVisible();
     await expect(element(by.id('home_flatlist'))).toBeVisible();
   });
 
   describe('home screen check back button', () => {
-    it('click back home', async () => {
-      await element(by.id('icon_home_back')).tap();
-    });
+    // it('click back home', async () => {
+    //   await element(by.id('icon_home_back')).tap();
+    // });
 
     it('should alert back home', async () => {
       await expect(element(by.text('Back'))).toBeVisible();
